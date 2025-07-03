@@ -14,7 +14,7 @@ options.add_argument("--window-size=1920,1080")
 driver = webdriver.Chrome(options=options)
 
 # Baca file Excel
-df_input = pd.read_excel("no_ujian_5.xlsx")
+df_input = pd.read_excel("sources/ubt_special.xlsx")
 nomor_list = df_input.iloc[:, 0].astype(str).tolist()  # Ambil kolom pertama
 
 # Simpan hasil scraping
@@ -97,6 +97,6 @@ for nomor_ujian in nomor_list:
     hasil_data.append(hasil)
 
 # Simpan hasil akhir
-pd.DataFrame(hasil_data).to_excel("hasil_eps_topik.xlsx", index=False)
+pd.DataFrame(hasil_data).to_excel("results/hasil_eps_topik_special.xlsx", index=False)
 print("\n✅ Selesai! Hasil disimpan ke 'hasil_eps_topik.xlsx'")
 driver.quit()
